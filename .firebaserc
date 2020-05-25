@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "dgi-it-eef5d": {
+      "hosting": {
+        "admin": [
+          "dgi-it-eef5d"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<form [formGroup]="loginForm" (submit)="attemptLogin()">
+  <div>
+  <label for="email">Email</label>
+  <input type="email" formControlName="email">
+</div>
+<div>
+  <label for="password">Password</label>
+  <input type="password" formControlName="password">
+</div>
+<button type="submit">Login</button>
+</form>
+
+
+{{error}}

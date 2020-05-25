@@ -1,0 +1,17 @@
+<h1>{{ currentExercise.title }}</h1>
+<ng-container *ngIf="currentExercise.duration > 0">
+  <p>i {{ currentExercise.duration }} sekunder</p>
+
+  <progress
+    [max]="currentExercise.duration"
+    [value]="currentExercise.currentPosition"
+  ></progress>
+</ng-container>
+
+<ng-container *ngIf="nextExercises.length">
+  <h3>De næste øvelser</h3>
+
+  <div *ngFor="let exercise of nextExercises; let i = index">
+    {{ exercise.title }}
+  </div>
+</ng-container>

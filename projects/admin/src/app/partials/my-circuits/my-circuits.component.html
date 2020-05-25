@@ -1,0 +1,14 @@
+<h1>My Circuits</h1>
+
+<ng-container *ngIf="circuits$ | async as circuits">
+
+  <div *ngIf="circuits.length === 0">
+    You haven't created any circuits yet.
+  </div>
+
+  <div *ngFor="let circuit of circuits">
+    {{circuit.name}} exercises: {{ circuit.exercises.length}} <button [routerLink]="[circuit.id,'edit']">edit</button><button [routerLink]="[circuit.id,'host']">host</button><button (click)="deleteCircuit(circuit.id)">delete</button>
+  </div>
+
+
+</ng-container>

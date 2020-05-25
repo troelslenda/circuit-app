@@ -1,0 +1,49 @@
+<form [formGroup]="circuitForm">
+  <label>
+    Circuit name:
+    <input type="text" formControlName="name" />
+  </label>
+
+  <div formArrayName="exercises">
+  <div *ngIf="exerciseForm.controls.length === 0"> You haven't added any exercises yet</div>
+  <h3 *ngIf="exerciseForm.controls.length > 1"> Exercises</h3>
+    <div
+      class="exercise"
+      *ngFor="let exercise of exerciseForm.controls; let i = index"
+      [formGroupName]="i"
+    >
+      <div>
+        <input placeholder="Title" type="text" formControlName="title" />
+
+        <!-- <div>
+      <label>
+        Description:
+        <textarea
+          id=""
+          cols="30"
+          rows="10"
+          formControlName="description"
+        ></textarea>
+      </label>
+    </div> -->
+
+        <input
+          placeholder="Duration"
+          type="number"
+          formControlName="duration"
+        />
+        <select formControlName="steptype" (change)="changeType($event, i)">
+          <option *ngFor="let type of types" [ngValue]="type">{{type}}</option>
+        </select>
+
+        <button (click)="removeExercise(i)">Remove exercise</button>
+
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <button (click)="addExercise()">Add Exercise</button>
+    <button (click)="saveCircuit()" type="submit">Save circuit</button>
+  </div>
+</form>

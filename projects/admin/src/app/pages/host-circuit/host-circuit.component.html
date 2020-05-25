@@ -1,0 +1,10 @@
+<div *ngIf="state$ | async as state">
+  <button *ngIf="state.running" (click)="exerciseService.pause()">pause</button>
+  <button *ngIf="!state.running" (click)="exerciseService.start()">play</button>
+  <!-- <button>skip to next exercise</button> -->
+  <button *ngIf="state.tick > 0" (click)="exerciseService.reset()">reset</button>
+</div>
+
+<app-player [circuit]="circuit$ | async" [state]="exerciseService.state$ | async"></app-player>
+
+
