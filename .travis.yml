@@ -1,0 +1,24 @@
+dist: trusty
+os: linux
+
+language: node_js
+node_js:
+  - '12'
+
+addons:
+  chrome: stable
+
+cache:
+  directories:
+    - ./node_modules
+
+before_install:
+  - npm install -g @angular/cli
+  - npm install -g firebase-tools
+
+install:
+  - npm install
+
+script:
+  #- npm run test -- --watch=false --no-progress --browsers=ChromeHeadless
+  ng deploy
