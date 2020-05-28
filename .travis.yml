@@ -19,7 +19,6 @@ before_install:
 install:
   - npm install
 
-deploy:
-  provider: firebase
-  # ⋮
-  project: admin
+script:
+  #- npm run test -- --watch=false --no-progress --browsers=ChromeHeadless
+  - ng deploy
