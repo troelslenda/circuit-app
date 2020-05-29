@@ -15,10 +15,9 @@ cache:
 before_install:
   - npm install -g @angular/cli
   - npm install -g firebase-tools
-
 install:
   - npm install
 
-script:
-  #- npm run test -- --watch=false --no-progress --browsers=ChromeHeadless
-  - ng deploy
+deploy:
+  provider: firebase
+  project: admin
